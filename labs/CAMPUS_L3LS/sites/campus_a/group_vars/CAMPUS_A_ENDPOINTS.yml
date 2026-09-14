@@ -5,6 +5,16 @@ port_profiles:
     mode: access
     spanning_tree_portfast: edge
 
+### Network Ports can be leveraged with port profiles
+### Reduces endpoint specific definitions
+
+# network_ports:
+#   - switches:
+#       - (?m)^\s*((?:member-)?leaf-[A-Za-z0-9_-]+)
+#     switch_ports:
+#       - Ethernet4/1-40
+#     profile: access-profile
+
 connected_endpoints:
 
   - name: host-1
