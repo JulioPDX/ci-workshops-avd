@@ -2,8 +2,18 @@
 - name: Deploy to CloudVision
   hosts: "{{ target_hosts }}"
   gather_facts: false
+  vars_files:
+    - ../sites/campus_a/group_vars/vault.yml
 
   tasks:
+
+    - name: Generate Structured Variables per Device
+      ansible.builtin.import_role:
+        name: arista.avd.eos_designs
+
+    - name: Generate Intended Config and Documentation
+      ansible.builtin.import_role:
+        name: arista.avd.eos_cli_config_gen
 
     - name: Deploy to Static Configuration Studio
       ansible.builtin.import_role:

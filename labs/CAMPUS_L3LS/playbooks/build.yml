@@ -2,6 +2,8 @@
 - name: Build Switch configuration
   hosts: "{{ target_hosts }}"
   gather_facts: false
+  vars_files:
+    - ../sites/campus_a/group_vars/vault.yml
 
   tasks:
 
