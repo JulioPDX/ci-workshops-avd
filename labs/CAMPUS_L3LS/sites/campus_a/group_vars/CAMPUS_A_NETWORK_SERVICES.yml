@@ -7,7 +7,7 @@ tenants:
         vrf_vni: 10
         svis:
           - id: 100
-            name: 'IDF1_VOICE'
+            name: 'GENERAL_DATA'
             tags: [ "GENERAL_DATA" ]
             enabled: true
             ip_address_virtual: 10.100.100.1/24

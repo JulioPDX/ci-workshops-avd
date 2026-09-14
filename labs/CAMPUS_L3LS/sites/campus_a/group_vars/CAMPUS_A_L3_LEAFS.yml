@@ -47,7 +47,7 @@ l3leaf:
           uplink_switch_interfaces: [ Ethernet4, Ethernet4 ]
     - group: IDF3
       filter:
-        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
+        tags: [ "IDF3_DATA", "IDF3_VOICE", "GENERAL_DATA" ]
       campus_access_pod: IDF3
       bgp_as: 65103
       nodes:
