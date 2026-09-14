@@ -19,4 +19,4 @@
       ansible.builtin.import_role:
         name: arista.avd.cv_deploy
       vars:
-        cv_server: campus-2-fb8b597d-eos.topo.testdrive.arista.com
+        cv_server: campus-1-863acf25-eos.topo.testdrive.arista.com
