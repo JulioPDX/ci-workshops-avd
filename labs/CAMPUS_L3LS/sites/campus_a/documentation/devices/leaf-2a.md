@@ -261,6 +261,7 @@ vlan 220
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
+| Ethernet3/1 | host-3_Ethernet1 | access | 210 | - | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -288,6 +289,14 @@ interface Ethernet2/1
    mtu 1500
    no switchport
    ip address 172.16.1.11/31
+!
+interface Ethernet3/1
+   description host-3_Ethernet1
+   no shutdown
+   switchport access vlan 210
+   switchport mode access
+   switchport
+   spanning-tree portfast
 ```
 
 ### Loopback Interfaces

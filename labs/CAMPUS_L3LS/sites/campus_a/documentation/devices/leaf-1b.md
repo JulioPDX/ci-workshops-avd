@@ -302,6 +302,7 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
+| Ethernet1 | host-2_Ethernet1 | access | 120 | - | - | - |
 | Ethernet47 | MLAG_leaf-1a_Ethernet47 | *trunk | *- | *- | *MLAG | 47 |
 | Ethernet48 | MLAG_leaf-1a_Ethernet48 | *trunk | *- | *- | *MLAG | 47 |
 
@@ -316,6 +317,14 @@ vlan 4094
 #### Ethernet Interfaces Device Configuration
 
 ```eos
+!
+interface Ethernet1
+   description host-2_Ethernet1
+   no shutdown
+   switchport access vlan 120
+   switchport mode access
+   switchport
+   spanning-tree portfast
 !
 interface Ethernet47
    description MLAG_leaf-1a_Ethernet47

@@ -252,6 +252,7 @@ vlan 320
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
+| Ethernet1 | host-4_Ethernet1 | access | 310 | - | - | - |
 | Ethernet49 | L2_leaf-3a_Ethernet51 | *trunk | *310,320 | *- | *- | 49 |
 | Ethernet50 | L2_leaf-3b_Ethernet51 | *trunk | *310,320 | *- | *- | 49 |
 
@@ -260,6 +261,14 @@ vlan 320
 #### Ethernet Interfaces Device Configuration
 
 ```eos
+!
+interface Ethernet1
+   description host-4_Ethernet1
+   no shutdown
+   switchport access vlan 310
+   switchport mode access
+   switchport
+   spanning-tree portfast
 !
 interface Ethernet49
    description L2_leaf-3a_Ethernet51

@@ -38,6 +38,19 @@ ethernet_interfaces:
     peer: leaf-3b
     peer_interface: Ethernet52
     peer_type: l3leaf
+- name: Ethernet1
+  description: host-5_Ethernet1
+  shutdown: false
+  spanning_tree_portfast: edge
+  metadata:
+    peer: host-5
+    peer_interface: Ethernet1
+    peer_key: connected_endpoints
+    port_profile: access-profile
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 320
 hostname: member-leaf-3d
 ip_domain_lookup:
   source_interfaces:
@@ -97,6 +110,10 @@ metadata:
         value: Fabric
       - name: Link-Type
         value: Uplink
+    - interface: Ethernet1
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
     - interface: Management0
       tags:
       - name: Link-Type

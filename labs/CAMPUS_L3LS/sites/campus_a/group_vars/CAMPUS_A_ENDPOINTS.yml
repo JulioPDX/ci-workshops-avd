@@ -1,0 +1,50 @@
+---
+port_profiles:
+
+  - profile: access-profile
+    mode: access
+    spanning_tree_portfast: edge
+
+connected_endpoints:
+
+  - name: host-1
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ leaf-1a ]
+        switch_ports: [ Ethernet1 ]
+        vlans: 110
+        profile: access-profile
+  - name: host-2
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ leaf-1b ]
+        switch_ports: [ Ethernet1 ]
+        vlans: 120
+        profile: access-profile
+  - name: host-3
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ leaf-2a ]
+        switch_ports: [ Ethernet3/1 ]
+        vlans: 210
+        profile: access-profile
+  - name: host-4
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ member-leaf-3c ]
+        switch_ports: [ Ethernet1 ]
+        vlans: 310
+        profile: access-profile
+  - name: host-5
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ member-leaf-3d ]
+        switch_ports: [ Ethernet1 ]
+        vlans: 320
+        profile: access-profile
+  # - name: host-6
+  #   adapters:
+  #     - endpoint_ports: [ Ethernet1 ]
+  #       switches: [ member-leaf-3e ]
+  #       vlans: [ 100 ]
+  #       profile: access-profile
