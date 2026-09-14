@@ -76,7 +76,7 @@ local_users:
 - name: arista
   privilege: 15
   role: network-admin
-  sha512_password: $6$arista$MGIGSLYQwHBYFzWAj0hfvqsA/RizNUC/HHH1aYYu0ly3dVTq9ccjWHAGTmFqolIga6SnZrXfVk97JioAziWqB0
+  sha512_password: $6$arista$9SLGfVV9QUmpkhxg3w11Z1.mGmXoeT9EWc97N2LS9dYb2Iy/BxErlPUHb5ifijv5AwlnOYzyTo8ZysHqkx5ZT1
 loopback_interfaces:
 - name: Loopback0
   description: ROUTER_ID

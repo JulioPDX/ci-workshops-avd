@@ -267,6 +267,7 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 110 | IDF1_DATA | - |
 | 120 | IDF1_VOICE | - |
 | 3009 | MLAG_L3_VRF_OVERLAY | MLAG |
 | 4093 | MLAG_L3 | MLAG |
@@ -275,6 +276,9 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 110
+   name IDF1_DATA
 !
 vlan 120
    name IDF1_VOICE
@@ -405,6 +409,7 @@ interface Loopback1
 
 | Interface | Description | VRF | MTU | Shutdown |
 | --------- | ----------- | --- | --- | -------- |
+| Vlan110 | IDF1_DATA | OVERLAY | - | False |
 | Vlan120 | IDF1_VOICE | OVERLAY | - | False |
 | Vlan3009 | MLAG_L3_VRF_OVERLAY | OVERLAY | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
@@ -414,6 +419,7 @@ interface Loopback1
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan110 | OVERLAY | - | 10.1.10.1/24 | - | - | - |
 | Vlan120 | OVERLAY | - | 10.1.20.1/24 | - | - | - |
 | Vlan3009 | OVERLAY | 10.252.1.0/31 | - | - | - | - |
 | Vlan4093 | default | 10.252.1.0/31 | - | - | - | - |
@@ -422,6 +428,12 @@ interface Loopback1
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan110
+   description IDF1_DATA
+   no shutdown
+   vrf OVERLAY
+   ip address virtual 10.1.10.1/24
 !
 interface Vlan120
    description IDF1_VOICE
@@ -464,6 +476,7 @@ interface Vlan4094
 
 | VLAN | VNI | Flood List | Multicast Group |
 | ---- | --- | ---------- | --------------- |
+| 110 | 10110 | - | - |
 | 120 | 10120 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
@@ -481,6 +494,7 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
+   vxlan vlan 110 vni 10110
    vxlan vlan 120 vni 10120
    vxlan vrf OVERLAY vni 10
 ```
@@ -619,6 +633,7 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
+| 110 | 10.250.1.3:10110 | 10110:10110 | - | - | learned |
 | 120 | 10.250.1.3:10120 | 10120:10120 | - | - | learned |
 
 #### Router BGP VRFs
@@ -661,6 +676,11 @@ router bgp 65101
    neighbor 172.16.1.0 remote-as 65100
    neighbor 172.16.1.0 description spine-1_Ethernet3
    redistribute connected route-map RM-CONN-2-BGP
+   !
+   vlan 110
+      rd 10.250.1.3:10110
+      route-target both 10110:10110
+      redistribute learned
    !
    vlan 120
       rd 10.250.1.3:10120
