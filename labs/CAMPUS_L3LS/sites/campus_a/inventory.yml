@@ -4,7 +4,6 @@ CAMPUS_A:
     CVP:
       hosts:
         cvp:
-          ansible_host: campus-2-fb8b597d-eos.topo.testdrive.arista.com
     CAMPUS_A_FABRIC:
       children:
         CAMPUS_A_SPINES:
@@ -28,7 +27,7 @@ CAMPUS_A:
           hosts:
             member-leaf-3c:
             member-leaf-3d:
-            member-leaf-3e:
+            # member-leaf-3e:
     CAMPUS_A_NETWORK_SERVICES:
       children:
         CAMPUS_A_SPINES:

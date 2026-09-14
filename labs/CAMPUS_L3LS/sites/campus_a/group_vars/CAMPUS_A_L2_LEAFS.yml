@@ -30,14 +30,14 @@ l2leaf:
           id: 7
           mgmt_ip: 192.168.0.20/24
           uplink_switch_interfaces: [ Ethernet52, Ethernet52 ]
-    - group: IDF3_3E
-      filter:
-        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
-      campus_access_pod: IDF3
-      cv_tags_topology_type: member-leaf
-      mlag: false
-      nodes:
-        - name: member-leaf-3e
-          id: 8
-          mgmt_ip: 192.168.0.21/24
-          uplink_switch_interfaces: [ Ethernet53/1, Ethernet53/1 ]
+    # - group: IDF3_3E
+    #   filter:
+    #     tags: [ "IDF3_DATA", "IDF3_VOICE" ]
+    #   campus_access_pod: IDF3
+    #   cv_tags_topology_type: member-leaf
+    #   mlag: false
+    #   nodes:
+    #     - name: member-leaf-3e
+    #       id: 8
+    #       mgmt_ip: 192.168.0.21/24
+    #       uplink_switch_interfaces: [ Ethernet53/1, Ethernet53/1 ]
