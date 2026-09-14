@@ -32,7 +32,6 @@ l2leaf:
           uplink_switch_interfaces: [ Ethernet52, Ethernet52 ]
     # - group: IDF3_3E
     #   filter:
-    #     tags: [ "IDF3_DATA", "IDF3_VOICE" ]
     #   campus_access_pod: IDF3
     #   cv_tags_topology_type: member-leaf
     #   mlag: false
