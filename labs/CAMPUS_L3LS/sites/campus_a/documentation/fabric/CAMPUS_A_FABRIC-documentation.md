@@ -24,6 +24,7 @@
 | CAMPUS_A_FABRIC | l3leaf | leaf-3b | 192.168.0.18/24 | cEOS | Provisioned | - |
 | CAMPUS_A_FABRIC | l2leaf | member-leaf-3c | 192.168.0.19/24 | cEOS | Provisioned | - |
 | CAMPUS_A_FABRIC | l2leaf | member-leaf-3d | 192.168.0.20/24 | cEOS | Provisioned | - |
+| CAMPUS_A_FABRIC | l2leaf | member-leaf-3e | 192.168.0.21/24 | cEOS | Provisioned | - |
 | CAMPUS_A_FABRIC | spine | spine-1 | 192.168.0.12/24 | cEOS | Provisioned | - |
 | CAMPUS_A_FABRIC | spine | spine-2 | 192.168.0.13/24 | cEOS | Provisioned | - |
 
@@ -50,10 +51,12 @@
 | l3leaf | leaf-3a | Ethernet50 | spine | spine-2 | Ethernet5 |
 | l3leaf | leaf-3a | Ethernet51 | l2leaf | member-leaf-3c | Ethernet49 |
 | l3leaf | leaf-3a | Ethernet52 | l2leaf | member-leaf-3d | Ethernet49 |
+| l3leaf | leaf-3a | Ethernet53/1 | l2leaf | member-leaf-3e | Ethernet49 |
 | l3leaf | leaf-3b | Ethernet49 | spine | spine-1 | Ethernet6 |
 | l3leaf | leaf-3b | Ethernet50 | spine | spine-2 | Ethernet6 |
 | l3leaf | leaf-3b | Ethernet51 | l2leaf | member-leaf-3c | Ethernet50 |
 | l3leaf | leaf-3b | Ethernet52 | l2leaf | member-leaf-3d | Ethernet50 |
+| l3leaf | leaf-3b | Ethernet53/1 | l2leaf | member-leaf-3e | Ethernet50 |
 
 ## Fabric IP Allocation
 

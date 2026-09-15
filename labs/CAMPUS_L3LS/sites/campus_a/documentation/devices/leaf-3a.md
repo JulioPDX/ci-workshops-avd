@@ -314,6 +314,7 @@ vlan 4094
 | Ethernet48 | MLAG_leaf-3b_Ethernet48 | *trunk | *- | *- | *MLAG | 47 |
 | Ethernet51 | L2_member-leaf-3c_Ethernet49 | *trunk | *310,320 | *- | *- | 51 |
 | Ethernet52 | L2_member-leaf-3d_Ethernet49 | *trunk | *310,320 | *- | *- | 52 |
+| Ethernet53/1 | L2_member-leaf-3e_Ethernet49 | *trunk | *100,310,320 | *- | *- | 531 |
 
 *Inherited from Port-Channel Interface
 
@@ -361,6 +362,11 @@ interface Ethernet52
    description L2_member-leaf-3d_Ethernet49
    no shutdown
    channel-group 52 mode active
+!
+interface Ethernet53/1
+   description L2_member-leaf-3e_Ethernet49
+   no shutdown
+   channel-group 531 mode active
 ```
 
 ### Port-Channel Interfaces
@@ -374,6 +380,7 @@ interface Ethernet52
 | Port-Channel47 | MLAG_leaf-3b_Port-Channel47 | trunk | - | - | MLAG | - | - | - | - |
 | Port-Channel51 | L2_member-leaf-3c_Port-Channel49 | trunk | 310,320 | - | - | - | - | 51 | - |
 | Port-Channel52 | L2_member-leaf-3d_Port-Channel49 | trunk | 310,320 | - | - | - | - | 52 | - |
+| Port-Channel531 | L2_member-leaf-3e_Port-Channel49 | trunk | 100,310,320 | - | - | - | - | 531 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -401,6 +408,14 @@ interface Port-Channel52
    switchport mode trunk
    switchport
    mlag 52
+!
+interface Port-Channel531
+   description L2_member-leaf-3e_Port-Channel49
+   no shutdown
+   switchport trunk allowed vlan 100,310,320
+   switchport mode trunk
+   switchport
+   mlag 531
 ```
 
 ### Loopback Interfaces

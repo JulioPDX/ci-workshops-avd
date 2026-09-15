@@ -80,6 +80,16 @@ ethernet_interfaces:
     peer: member-leaf-3d
     peer_interface: Ethernet49
     peer_type: l2leaf
+- name: Ethernet53/1
+  description: L2_member-leaf-3e_Ethernet49
+  shutdown: false
+  channel_group:
+    id: 531
+    mode: active
+  metadata:
+    peer: member-leaf-3e
+    peer_interface: Ethernet49
+    peer_type: l2leaf
 hostname: leaf-3a
 ip_domain_lookup:
   source_interfaces:
@@ -182,6 +192,14 @@ metadata:
         value: Fabric
       - name: Link-Type
         value: Downlink
+    - interface: Ethernet53/1
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+      - name: Link-Type
+        value: Fabric
+      - name: Link-Type
+        value: Downlink
     - interface: Management0
       tags:
       - name: Link-Type
@@ -230,6 +248,15 @@ port_channel_interfaces:
     mode: trunk
     trunk:
       allowed_vlan: 310,320
+- name: Port-Channel531
+  description: L2_member-leaf-3e_Port-Channel49
+  shutdown: false
+  mlag: 531
+  switchport:
+    enabled: true
+    mode: trunk
+    trunk:
+      allowed_vlan: 100,310,320
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:
