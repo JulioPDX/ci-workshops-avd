@@ -52,9 +52,10 @@ connected_endpoints:
         switch_ports: [ Ethernet1 ]
         vlans: 320
         profile: access-profile
-  # - name: host-6
-  #   adapters:
-  #     - endpoint_ports: [ Ethernet1 ]
-  #       switches: [ member-leaf-3e ]
-  #       vlans: [ 100 ]
-  #       profile: access-profile
+  - name: host-6
+    adapters:
+      - endpoint_ports: [ Ethernet1 ]
+        switches: [ member-leaf-3e ]
+        switch_ports: [ Ethernet1 ]
+        vlans: 100
+        profile: access-profile
